@@ -3,7 +3,6 @@
 - Cookie clicker
 - Fractal tree
 - Internet Speed Tweet
-- Local Site (in progress)
 - Password generator
 - 💼 Work program 
 - Zillow web scrape
