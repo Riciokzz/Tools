@@ -3,8 +3,20 @@ import tkinter as tk
 calculation = ""
 
 
-def add_calculation(symbol):
-    pass
+def add_calc(n1, n2):
+    return n1 + n2
+
+
+def minus_calc(n1, n2):
+    return n1 - n2
+
+
+def multi_calc(n1, n2):
+    return n1 * n2
+
+
+def divide_calc(n1, n2):
+    return n1 / n2
 
 
 def eval_calculation():
