@@ -1,7 +1,16 @@
 from tkinter import *
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
+
 # ---------------------------- SAVE PASSWORD ------------------------------- #
+def save_inputs():
+    entry = f"{entry_website.get()} | {entry_email.get()} | {entry_pass.get()}\n"
+    with open("data.txt", mode="a") as file:
+        file.write(entry)
+    entry_website.delete(0, END)
+    entry_email.delete(0, END)
+    entry_pass.delete(0, END)
+
 
 # ---------------------------- UI SETUP ------------------------------- #
 
@@ -27,9 +36,11 @@ label_pass.grid(column=1, row=4, sticky=W)
 # Entry
 entry_website = Entry()
 entry_website.grid(column=2, row=2, columnspan=2, padx=2, pady=2, sticky=W+E)
+entry_website.focus()
 
 entry_email = Entry()
 entry_email.grid(column=2, row=3, columnspan=2, padx=2, pady=2, sticky=W+E)
+entry_email.insert(0, "name.lastname@email.com")
 
 entry_pass = Entry()
 entry_pass.grid(column=2, row=4, padx=2, pady=2, sticky=W+E)
@@ -38,7 +49,7 @@ entry_pass.grid(column=2, row=4, padx=2, pady=2, sticky=W+E)
 button_gen = Button(text="Generate Password")
 button_gen.grid(column=3, row=4, padx=2, pady=2, sticky=W+E)
 
-button_add = Button(text="Add",)
+button_add = Button(text="Add", command=save_inputs)
 button_add.grid(column=2, row=5, columnspan=2, padx=2, pady=2, sticky=W+E)
 
 window.mainloop()
