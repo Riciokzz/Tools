@@ -70,6 +70,33 @@ def save_inputs():
             entry_pass.delete(0, END)
 
 
+# ----------------------------- Search -------------------------------- #
+
+def search_data():
+    # Checking if entry not empty.
+    search_name = entry_website.get()
+    if len(search_name) == 0:
+        messagebox.showinfo(title="Empty window error", message="Website field can't be empty.")
+    else:
+        try:
+            # Opening data file
+            with open("data.json", mode="r") as file:
+                # Reading old data
+                data = json.load(file)
+        # If there is no data show infobox
+        except FileNotFoundError:
+            messagebox.showinfo(title="No file Error", message="No Data File Found")
+        else:
+            # Check if website is in data file
+            if search_name in data:
+                search_email = data[search_name]["email"]
+                search_pass = data[search_name]["password"]
+                messagebox.showinfo(title=search_name, message=f"Email: {search_email} \nPassword: {search_pass}")
+            else:
+                # If there is no suitable data in file show infobox.
+                messagebox.showinfo(title="No data Error", message=f"No data of '{search_name}' website.")
+
+
 # ---------------------------- UI SETUP ------------------------------- #
 
 window = Tk()
@@ -93,7 +120,7 @@ label_pass.grid(column=1, row=4, sticky=W)
 
 # Entry
 entry_website = Entry()
-entry_website.grid(column=2, row=2, columnspan=2, padx=2, pady=2, sticky=W + E)
+entry_website.grid(column=2, row=2, padx=2, pady=2, sticky=W + E)
 entry_website.focus()
 
 entry_email = Entry()
@@ -109,5 +136,8 @@ button_gen.grid(column=3, row=4, padx=2, pady=2, sticky=W + E)
 
 button_add = Button(text="Add", command=save_inputs)
 button_add.grid(column=2, row=5, columnspan=2, padx=2, pady=2, sticky=W + E)
+
+search_btn = Button(text="Search", command=search_data)
+search_btn.grid(column=3, row=2, padx=2, pady=2, sticky=W + E)
 
 window.mainloop()
