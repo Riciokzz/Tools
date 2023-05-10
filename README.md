@@ -10,6 +10,7 @@
 
 # Games
 
+- Scrabble
 - Battleships
 - Black Jack
 - Monty Hall
