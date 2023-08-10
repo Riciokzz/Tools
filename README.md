@@ -10,7 +10,6 @@
 
 # Games
 
-- Scrabble
 - Battleships
 - Black Jack
 - Monty Hall
@@ -18,6 +17,7 @@
 - Planet Simulator
 - Quiz 
 - Rock Paper Scissors
+- Scrabble
 - Slot Machine
 - Snake
 - Tic Tac Toe
