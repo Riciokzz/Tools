@@ -10,6 +10,7 @@
 
 # Games
 
+- Alien Invasion
 - Battleships
 - Black Jack
 - Monty Hall
