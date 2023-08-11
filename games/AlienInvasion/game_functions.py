@@ -30,7 +30,6 @@ def check_events(ship):
             check_keyup_events(event=event, ship=ship)
 
 
-
 def update_screen(ai_settings, screen, ship, game_character):
     """Update the screen during each loop"""
     screen.fill(ai_settings.bg_color)
