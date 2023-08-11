@@ -14,9 +14,9 @@ def check_events(ship):
                 # Move the ship to the right.
                 ship.moving_right = True
 
-            elif event.type == pygame.KEYUP:
-                if event.key == pygame.K_RIGHT:
-                    ship.moving_right = False
+        elif event.type == pygame.KEYUP:
+            if event.key == pygame.K_RIGHT:
+                ship.moving_right = False
 
 
 def update_screen(ai_settings, screen, ship, game_character):
