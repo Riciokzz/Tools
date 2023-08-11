@@ -21,6 +21,7 @@ def run_game():
 
         # Check for keyboard and mouse movements and clicks.
         gf.check_events(ship=ship)
+        ship.update(ship)
 
         # Redraw the screen during each pass through the loop.
         # Redraw the most recently screen while clearing old visible screen.
