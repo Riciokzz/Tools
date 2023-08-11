@@ -20,17 +20,16 @@ def run_game():
     # Start main loop for game.
     while True:
 
-        # Check for keyboard and mouse movements and clicks.
+        # Check for user inputs.
         gf.check_events(ai_settings=ai_settings, screen=screen, ship=ship, bullets=bullets)
 
-        # Redraw the screen during each pass through the loop.
-        # Redraw the most recently screen while clearing old visible screen.
+        # Update position of ship.
         ship.update()
 
-        # Delete bullets that are out of screen.
+        # Update any bullets on screen.
         gf.update_bullets(bullets)
 
-        # Update screen.
+        # Update screen base by previous updates.
         gf.update_screen(ai_settings=ai_settings, screen=screen, ship=ship, bullets=bullets)
 
 
