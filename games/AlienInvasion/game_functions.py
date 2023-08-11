@@ -30,11 +30,10 @@ def check_events(ship):
             check_keyup_events(event=event, ship=ship)
 
 
-def update_screen(ai_settings, screen, ship, game_character):
+def update_screen(ai_settings, screen, ship):
     """Update the screen during each loop"""
     screen.fill(ai_settings.bg_color)
     ship.blitme()
-    game_character.blitme()
 
     # Make the most recently event visible by refreshing.
     pygame.display.flip()
