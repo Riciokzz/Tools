@@ -1,5 +1,6 @@
 import pygame
 
+
 class Ship():
 
     def __init__(self, screen):
@@ -17,15 +18,19 @@ class Ship():
 
         # Movement flag
         self.moving_right = False
+        self.moving_left = False
 
     def update(self):
         """Update the ship's position on the movement flag."""
         if self.moving_right:
             self.rect.centerx += 1
+        if self.moving_left:
+            self.rect.centerx -= 1
 
     def blitme(self):
         """Draw the ship at its current location."""
         self.screen.blit(self.image, self.rect)
+
 
 class game_character():
 
