@@ -22,11 +22,17 @@ def run_game():
 
         # Check for keyboard and mouse movements and clicks.
         gf.check_events(ai_settings=ai_settings, screen=screen, ship=ship, bullets=bullets)
-        ship.update()
 
         # Redraw the screen during each pass through the loop.
         # Redraw the most recently screen while clearing old visible screen.
+        ship.update()
         bullets.update()
+
+        # Delete bullets that are out of screen.
+        for bullet in bullets.copy():
+            if bullet.rect.bottom <= 0:
+                bullets.remove(bullet)
+
         gf.update_screen(ai_settings=ai_settings, screen=screen, ship=ship, bullets=bullets)
 
 
