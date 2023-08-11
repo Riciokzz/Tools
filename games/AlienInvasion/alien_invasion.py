@@ -1,7 +1,7 @@
 import pygame
 
 from settings import Settings
-from ship import Ship, game_character as gc
+from ship import Ship, GameCharacter as GC
 import game_functions as gf
 
 
@@ -13,8 +13,8 @@ def run_game():
     pygame.display.set_caption("Alien Invasion")
 
     # Make a ship.
-    ship = Ship(screen)
-    character = gc(screen)
+    ship = Ship(ai_settings=ai_settings, screen=screen)
+    character = GC(screen)
 
     # Start main loop for game.
     while True:
