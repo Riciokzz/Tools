@@ -1,0 +1,73 @@
+nav .navbar-brand
+{
+    font-size: xx-large;
+}
+
+nav .navbar-brand .blue
+{
+    color: #537fbe;
+}
+
+.item-label {
+    text-align: left;
+  }
+
+.item-value
+{
+    text-align: right;
+}
+
+.weather-container
+{
+    min-width: auto;
+    max-width: 610px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.table
+{
+    white-space: nowrap;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table.fixed-left-column th:first-child,
+table.fixed-left-column td:first-child
+{
+    position: sticky;
+    left: 0;
+    background-color: #f2f2f2;
+}
+
+.scrollme
+{
+    overflow-x: auto;
+}
+
+.footer
+{
+    position: fixed;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: #f8f9fa;
+    text-align: center;
+    color: #6c757d;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer div
+{
+    margin-right: 10px;
+}
+
+.footer-info
+{
+    margin-left: 10px;
+}
+

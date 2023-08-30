@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Main
+{% endblock %}
+
+{% block main %}
+    <div class="city">
+        <h3>Week weather in {{ city }}</h3>
+    </div>
+    <div class="current-time">{{ date }}</div>
+    <br>
+    <div class="scrollme weather-container">
+        <table class="table table-striped table-responsive fixed-left-column">
+            <thead class="thead-light">
+                <tr>
+                    <th></th>
+                    {% for time in w_data.time %}
+                    <th>
+                        <div>{{ time.split('-')[1] }}-{{ time.split('-')[2].split('T')[0] }}</div> <!-- Display date -->
+                        <div>{{ time.split('T')[1][:5] }}</div> <!-- Display time (00:00 format) -->
+                    </th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="item-label">Temperature</td>
+                {% for temperature in w_data.temperature_2m %}
+                <td>{{ temperature }} °C</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td class="item-label">Humidity</td>
+                {% for humidity in w_data.relativehumidity_2m %}
+                <td>{{ humidity }} %</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td class="item-label">Rain</td>
+                {% for rain in w_data.rain %}
+                <td>{{ rain }} mm</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td class="item-label">Wind Speed</td>
+                {% for windspeed in w_data.windspeed_10m %}
+                <td>{{ windspeed }} m/s</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td class="item-label">Cloud coverage</td>
+                {% for cloudcover in w_data.cloudcover %}
+                <td>{{ cloudcover }} %</td>
+                {% endfor %}
+            </tr>
+            <!-- If needed add more rows for other data fields -->
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
+

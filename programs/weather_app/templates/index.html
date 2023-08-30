@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Main
+{% endblock %}
+
+{% block main %}
+    <div class="weather-container">
+        <div class="city">
+            <h3>Live weather in {{ city }}</h3>
+        </div>
+        <div class="current-time">{{ date }}</div>
+        <br>
+        <table class="table table-striped">
+            <tbody>
+                <tr>
+                    <td class="item-label">Temperature</td>
+                    <td class="item-value">{{w_temp}} °C</td>
+                </tr>
+                <tr>
+                    <td class="item-label">UV index</td>
+                    <td class="item-value">{{w_uv}}</td>
+                </tr>
+
+                <tr>
+                    <td class="item-label">Humidity</td>
+                    <td class="item-value">{{w_humidity}} %</td>
+                </tr>
+                <tr>
+                    <td class="item-label">Rain</td>
+                    <td class="item-value">{{w_rain}} mm</td>
+                </tr>
+                <tr>
+                    <td class="item-label">Wind</td>
+                    <td class="item-value">{{w_wind}} m/s, {{w_direc}}</td>
+                </tr>
+                <tr>
+                    <td class="item-label">Cloud coverage</td>
+                    <td class="item-value">{{w_cloud}} %</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="city">
+            <h3>Hourly weather in {{ city }}</h3>
+        </div>
+        <table class="table table-striped">
+          <thead class="thead-light">
+            <tr>
+              <th></th>
+              {% for time in part_data.time %}
+              <th>{{ time.split('T')[1] }}</th>
+              {% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="item-label">Temperature</td>
+              {% for temperature in part_data.temperature_2m %}
+              <td>{{ temperature }} °C</td>
+              {% endfor %}
+            </tr>
+            <tr>
+              <td class="item-label">Cloud coverage</td>
+              {% for cloudcover in part_data.cloudcover %}
+              <td>{{ cloudcover }} %</td>
+              {% endfor %}
+            </tr>
+            <tr>
+              <td class="item-label">Wind Speed</td>
+              {% for windspeed in part_data.windspeed_10m %}
+              <td>{{ windspeed }} m/s</td>
+              {% endfor %}
+            </tr>
+            <tr>
+              <td class="item-label">Rain</td>
+              {% for rain in part_data.rain %}
+              <td>{{ rain }} mm</td>
+              {% endfor %}
+            </tr>
+            <!-- If needed add more rows for other data fields -->
+          </tbody>
+        </table>
+        <div class="map">
+            {{map_html | safe}}
+        </div>
+    </div>
+{% endblock %}
+

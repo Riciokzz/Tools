@@ -1,0 +1,12 @@
+cs50
+Flask
+Flask-Session
+requests
+folium
+csv
+datetime
+pytz
+requests
+subprocess
+urllib
+uuid
