@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Place
+{% endblock %}
+
+{% block main %}
+    <form action="/location" method="POST">
+        <h3>Search - enter city name, country.</h3>
+        <br>
+        <div class="mb-3">
+            <input autocomplete="off" autofocus="" class="form-control mx-auto w-auto" name="symbol" placeholder="City name" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">
+            Search
+        </button>
+    </form>
+{% endblock %}
