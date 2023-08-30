@@ -4,6 +4,7 @@
 - Fractal tree
 - Internet Speed Tweet
 - Password generator
+- Weather App
 - 💼 Work program 
 - Zillow web scrape
 
