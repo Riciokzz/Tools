@@ -114,7 +114,7 @@ def update_aliens(ai_settings, ship, aliens):
     aliens.update()
 
     # Look for alien-ship collisions.
-    if pygame.sprite.groupcollide(ship, aliens):
+    if pygame.sprite.spritecollideany(ship, aliens):
         print("Ship hit!!!")
 
 
