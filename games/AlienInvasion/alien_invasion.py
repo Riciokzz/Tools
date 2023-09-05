@@ -48,6 +48,7 @@ def run_game():
             # Update screen base by previous updates.
             gf.update_screen(ai_settings=ai_settings,
                              screen=screen,
+                             stats=stats,
                              ship=ship,
                              aliens=aliens,
                              bullets=bullets,
