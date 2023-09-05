@@ -58,7 +58,7 @@ def update_bullets(bullets):
             bullets.remove(bullet)
 
 
-def update_screen(ai_settings, screen, ship, alien, bullets):
+def update_screen(ai_settings, screen, ship, aliens, bullets):
     """Update the screen during each loop"""
     screen.fill(ai_settings.bg_color)
 
@@ -66,7 +66,7 @@ def update_screen(ai_settings, screen, ship, alien, bullets):
     for bullet in bullets.sprites():
         bullet.draw_bullet()
     ship.blitme()
-    alien.blitme()
+    aliens.draw(screen)
 
     # Make the most recently event visible by refreshing.
     pygame.display.flip()
