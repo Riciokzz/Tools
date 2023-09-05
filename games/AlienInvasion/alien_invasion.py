@@ -31,17 +31,18 @@ def run_game():
         # Check for user inputs.
         gf.check_events(ai_settings=ai_settings, screen=screen, ship=ship, bullets=bullets)
 
-        # Update position of ship.
-        ship.update()
+        if stats.game_active:
+            # Update position of ship.
+            ship.update()
 
-        # Update any bullets on screen.
-        gf.update_bullets(ai_settings, screen, ship, aliens, bullets)
+            # Update any bullets on screen.
+            gf.update_bullets(ai_settings, screen, ship, aliens, bullets)
 
-        # Update aliens on screen.
-        gf.update_aliens(ai_settings, stats, screen, ship, aliens, bullets)
+            # Update aliens on screen.
+            gf.update_aliens(ai_settings, stats, screen, ship, aliens, bullets)
 
-        # Update screen base by previous updates.
-        gf.update_screen(ai_settings=ai_settings, screen=screen, ship=ship, aliens=aliens, bullets=bullets)
+            # Update screen base by previous updates.
+            gf.update_screen(ai_settings=ai_settings, screen=screen, ship=ship, aliens=aliens, bullets=bullets)
 
 
 
