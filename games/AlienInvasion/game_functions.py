@@ -83,12 +83,14 @@ def check_events(ship, ai_settings, screen, bullets):
         elif event.type == pygame.KEYUP:
             check_keyup_events(event=event, ship=ship)
 
+
 def check_fleet_edges(ai_settings, aliens):
     """Respond appropriately if any aliens have reached ad edge."""
     for alien in aliens.sprites():
         if alien.check_edges():
             change_fleet_direction(ai_settings, aliens)
             break
+
 
 def change_fleet_direction(ai_settings, aliens):
     """Drop the entire fleet and change fleet's moving direction."""
@@ -110,6 +112,7 @@ def update_aliens(ai_settings, aliens):
     Check if fleet in on the edge and move it down."""
     check_fleet_edges(ai_settings, aliens)
     aliens.update()
+
 
 def update_bullets(bullets):
     """Update position of bullets and delete old bullets."""
