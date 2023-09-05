@@ -114,7 +114,7 @@ def update_aliens(ai_settings, aliens):
     aliens.update()
 
 
-def update_bullets(bullets):
+def update_bullets(aliens, bullets):
     """Update position of bullets and delete old bullets."""
     # Update bullet position.
     bullets.update()
