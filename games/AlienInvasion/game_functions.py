@@ -96,7 +96,7 @@ def change_fleet_direction(ai_settings, aliens):
     """Drop the entire fleet and change fleet's moving direction."""
     for alien in aliens.sprites():
         alien.rect.y += ai_settings.fleet_drop_speed
-        ai_settings.fleet_direction *= -1
+    ai_settings.fleet_direction *= -1
 
 
 def fire_bullet(ai_settings, screen, ship, bullets):
