@@ -87,7 +87,8 @@ def check_events(ai_settings, screen, stats, play_button, ship, bullets):
             mouse_x, mouse_y = pygame.mouse.get_pos()
             check_play_button(stats, play_button, mouse_x, mouse_y)
 
-def check_play_button(stats, play_game, mouse_x, mouse_y):
+
+def check_play_button(stats, play_button, mouse_x, mouse_y):
     """Start a new game when the player click Play."""
     if play_button.rect.collidepoint(mouse_x, mouse_y):
         stats.game_active = True
