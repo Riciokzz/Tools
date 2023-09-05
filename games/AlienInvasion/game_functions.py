@@ -124,6 +124,10 @@ def update_bullets(bullets):
         if bullet.rect.bottom <= 0:
             bullets.remove(bullet)
 
+    # Check for any bullets that have hit aliens.
+    # If True get rid of hte bullet and the alien.
+    collisions = pygame.sprite.groupcollide(bullets, aliens, True, True)
+
 
 def update_screen(ai_settings, screen, ship, aliens, bullets):
     """Update the screen during each loop"""
