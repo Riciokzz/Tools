@@ -26,7 +26,6 @@ class Alien(Sprite):
         """Draw the alien at its current location."""
         self.screen.blit(self.image, self.rect)
 
-
     def check_edges(self):
         """Return True if alien is at edge screen."""
         screen_rect = self.screen.get_rect()
