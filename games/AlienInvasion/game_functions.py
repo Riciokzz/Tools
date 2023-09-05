@@ -145,6 +145,9 @@ def update_aliens(ai_settings, stats, screen, ship, aliens, bullets):
     if pygame.sprite.spritecollideany(ship, aliens):
         ship_hit(ai_settings, stats, screen, ship, aliens, bullets)
 
+        # Look for aliens hitting the bottom of the screen.
+        check_aliens_bottom(ai_settings, stats, screen, ship, aliens, bullets)
+
 
 def update_bullets(ai_settings, screen, ship, aliens, bullets):
     """Update position of bullets and delete old bullets."""
