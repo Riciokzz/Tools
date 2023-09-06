@@ -38,6 +38,7 @@ def run_game():
         gf.check_events(ai_settings=ai_settings,
                         screen=screen,
                         stats=stats,
+                        sb=sb,
                         play_button=play_button,
                         ship=ship,
                         aliens=aliens,
