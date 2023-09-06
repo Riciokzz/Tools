@@ -38,6 +38,7 @@ def run_game():
                         stats=stats,
                         play_button=play_button,
                         ship=ship,
+                        aliens=aliens,
                         bullets=bullets)
 
         if stats.game_active:
