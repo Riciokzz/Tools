@@ -76,6 +76,7 @@ def check_high_score(stats, sb):
         stats.high_score = stats.score
         sb.prep_high_score()
 
+
 def check_events(ai_settings, screen, stats, play_button, ship, aliens, bullets):
     """Respond to key presses and mouse evens."""
     for event in pygame.event.get():
@@ -206,6 +207,7 @@ def check_bullet_alien_collisions(ai_settings, screen, stats, sb, ship, aliens, 
         for aliens in collisions.values():
             stats.score += ai_settings.alien_points
             sb.prep_score()
+        check_high_score(stats, sb)
 
     if len(aliens) == 0:
         # Destroy existing bullets, speed up game, and create new fleet.
