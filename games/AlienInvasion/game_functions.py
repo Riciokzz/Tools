@@ -70,6 +70,12 @@ def check_keyup_events(event, ship):
         ship.moving_left = False
 
 
+def check_high_score(stats, sb):
+    """Check to see if there's a new high score."""
+    if stats.score > stats.high_score:
+        stats.high_score = stats.score
+        sb.prep_high_score()
+
 def check_events(ai_settings, screen, stats, play_button, ship, aliens, bullets):
     """Respond to key presses and mouse evens."""
     for event in pygame.event.get():
