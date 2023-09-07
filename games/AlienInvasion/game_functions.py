@@ -26,6 +26,11 @@ def check_bullet_alien_collisions(ai_settings, screen, stats, sb, ship, aliens, 
             sb.prep_score()
         check_high_score(stats, sb)
 
+    start_new_level(ai_settings, screen, stats, sb, ship, aliens, bullets)
+
+
+def start_new_level(ai_settings, screen, stats, sb, ship, aliens, bullets):
+    """Create new level."""
     if len(aliens) == 0:
         # If the entire fleet is destroyed, start a new level.
         # Destroy existing bullets, speed up game, and create new fleet.
