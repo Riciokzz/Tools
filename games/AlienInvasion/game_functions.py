@@ -42,13 +42,15 @@ def check_events(ai_settings, screen, stats, sb, play_button, ship, aliens, bull
     """Respond to key presses and mouse evens."""
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
+            write_score(stats)
             sys.exit()
         elif event.type == pygame.KEYDOWN:
             check_keydown_events(event=event,
                                  ai_settings=ai_settings,
                                  screen=screen,
                                  ship=ship,
-                                 bullets=bullets)
+                                 bullets=bullets,
+                                 stats=stats)
         elif event.type == pygame.KEYUP:
             check_keyup_events(event=event, ship=ship)
         elif event.type == pygame.MOUSEBUTTONDOWN:
@@ -64,7 +66,7 @@ def check_fleet_edges(ai_settings, aliens):
             break
 
 
-def check_keydown_events(event, ai_settings, screen, ship, bullets):
+def check_keydown_events(event, ai_settings, screen, ship, bullets, stats):
     """Respond to keypress."""
     if event.key == pygame.K_RIGHT:
         ship.moving_right = True
@@ -73,6 +75,7 @@ def check_keydown_events(event, ai_settings, screen, ship, bullets):
     elif event.key == pygame.K_SPACE:
         fire_bullet(ai_settings, screen, ship, bullets)
     elif event.key == pygame.K_q:
+        write_score(stats)
         sys.exit()
 
 
@@ -249,3 +252,26 @@ def update_screen(ai_settings, screen, stats, sb, ship, aliens, bullets, play_bu
 
     # Make the most recently event visible by refreshing.
     pygame.display.flip()
+
+
+def write_score(stats):
+    try:
+
+        # Check if file contains any data.
+        with open("score_data.txt", "r") as read_data:
+            data = read_data.readline().strip()
+
+            if len(data) == 0:
+                # If the file empty write the high score to file.
+                with open("score_data.txt", "w") as write_data:
+                    write_data.write(str(stats.high_score))
+            else:
+                # Compare the existing score with the new high score.
+                if int(data) < int(stats.high_score):
+                    with open("score_data.txt", "w") as write_data:
+                        write_data.write(str(stats.high_score))
+
+    except FileNotFoundError:
+        # If the file doesn't exist, create it and write the high score.
+        with open("score_data.txt", "w") as write_data:
+            write_data.write(str(stats.high_score))
