@@ -29,20 +29,6 @@ def check_bullet_alien_collisions(ai_settings, screen, stats, sb, ship, aliens, 
     start_new_level(ai_settings, screen, stats, sb, ship, aliens, bullets)
 
 
-def start_new_level(ai_settings, screen, stats, sb, ship, aliens, bullets):
-    """Create new level."""
-    if len(aliens) == 0:
-        # If the entire fleet is destroyed, start a new level.
-        # Destroy existing bullets, speed up game, and create new fleet.
-        bullets.empty()
-        ai_settings.increase_speed()
-
-        # Increase level.
-        stats.level += 1
-        sb.prep_level()
-        create_fleet(ai_settings, screen, ship, aliens)
-
-
 def check_events(ai_settings, screen, stats, sb, play_button, ship, aliens, bullets):
     """Respond to key presses and mouse evens."""
     for event in pygame.event.get():
@@ -209,6 +195,20 @@ def ship_hit(ai_settings, screen, stats, sb, ship, aliens, bullets):
     else:
         stats.game_active = False
         pygame.mouse.set_visible(True)
+
+
+def start_new_level(ai_settings, screen, stats, sb, ship, aliens, bullets):
+    """Create new level."""
+    if len(aliens) == 0:
+        # If the entire fleet is destroyed, start a new level.
+        # Destroy existing bullets, speed up game, and create new fleet.
+        bullets.empty()
+        ai_settings.increase_speed()
+
+        # Increase level.
+        stats.level += 1
+        sb.prep_level()
+        create_fleet(ai_settings, screen, ship, aliens)
 
 
 def update_aliens(ai_settings, screen, stats, sb, ship, aliens, bullets):
